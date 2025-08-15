@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Minesweeper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">Dark Minesweeper</h1>
+            <div class="game-controls">
+                <div class="difficulty-selector">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="baby">Baby (2x2)</option>
+                        <option value="tiny">Tiny (3x3)</option>
+                        <option value="small">Small (4x4)</option>
+                        <option value="easy">Easy (5x5)</option>
+                        <option value="medium">Medium (6x6)</option>
+                        <option value="challenging">Challenging (7x7)</option>
+                        <option value="hard">Hard (8x8)</option>
+                        <option value="expert">Expert (9x9)</option>
+                        <option value="master">Master (10x10)</option>
+                    </select>
+                </div>
+                <button id="hint-button" class="btn">💡 Hint (<span id="hint-count">3</span>)</button>
+                <button id="new-game" class="btn">New Game</button>
+                <button id="reset" class="btn">Reset</button>
+            </div>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Mines:</span>
+                    <span id="mine-count">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer">0:00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Flagged:</span>
+                    <span id="flag-count">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div id="info-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>How to Play Dark Minesweeper</h2>
+                <h3>Classic Mode</h3>
+                <ul>
+                    <li><strong>Left Click:</strong> Reveal a cell</li>
+                    <li><strong>Right Click:</strong> Toggle flag on a cell</li>
+                    <li><strong>Goal:</strong> Reveal all non-mine cells without hitting any mines</li>
+                    <li><strong>Numbers:</strong> Count of adjacent mines (1-8)</li>
+                </ul>
+                
+                <h3>Quantum Mode</h3>
+                <ul>
+                    <li>Some cells exist in quantum superposition (purple glow)</li>
+                    <li>They may or may not contain mines until you click them</li>
+                    <li>Clicking collapses the quantum state</li>
+                    <li>Adds strategic depth and unpredictability</li>
+                </ul>
+                
+                <h3>Controls</h3>
+                <ul>
+                    <li><strong>Difficulty:</strong> Choose board size from Baby (2×2) to Master (10×10)</li>
+                    <li><strong>Quantum Mode:</strong> Toggle quantum superposition mechanics</li>
+                    <li><strong>New Game:</strong> Start fresh with current settings</li>
+                    <li><strong>Reset:</strong> Restart current board configuration</li>
+                </ul>
+                
+                <button id="close-info" class="btn">Got it!</button>
+            </div>
+        </div>
+
+        <main class="game-board-container">
+            <div id="game-board" class="game-board"></div>
+        </main>
+
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="game-result">Game Over</h2>
+                <p id="game-message">You hit a mine!</p>
+                <button id="play-again" class="btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="game.js"></script>
+</body>
+</html>
